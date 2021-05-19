@@ -1,18 +1,2 @@
-<<<<<<< HEAD
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-=======
-<%
-=begin%>
- <h1><%= @user.name %></h1> 
-<%
-=end%>
-
-<% if @user == current_user %>
-  <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark edit-profile-btn" %>
-  <%= @user.email %>
-<% end %>
-
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "" %>
-<%= link_to "キャンセル", "#", class: "" %>
->>>>>>> d276ea1578c363de678e90761725bc32bf652c4f

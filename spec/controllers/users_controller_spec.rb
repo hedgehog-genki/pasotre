@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-<<<<<<< HEAD
   describe "GET #index" do
     it "returns http success" do
       get :index
@@ -31,6 +30,4 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-=======
->>>>>>> d276ea1578c363de678e90761725bc32bf652c4f
 end

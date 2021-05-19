@@ -7,7 +7,6 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-<<<<<<< HEAD
         <% if logged_in? %>
           <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
           <li class="dropdown-divider"></li>
@@ -15,14 +14,6 @@
         <% else %>
           <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
-=======
-        <% if user_signed_in? %>
-          <%= link_to "user", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
-          <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <li class="nav-item"><%= link_to "SignUp", new_user_registration_path %></li>
-          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-item" %></li>
->>>>>>> d276ea1578c363de678e90761725bc32bf652c4f
         <% end %>
       </ul>
     </div>
