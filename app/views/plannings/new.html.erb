@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with model: @planning do |f| %>
+
+      <div class="form-group row">
+        <div class="col-sm-4 mb-2">
+          <%= f.label :condition, '今日の調子は？', {class: 'form-label'} %>
+        </div>
+        <div class="col-sm-8 mb-2">
+          <%= f.radio_button :condition, 1.4, {checked: true} %> 最高! 
+          <%= f.radio_button :condition, 1.2 %> 良い 
+          <%= f.radio_button :condition, 1.0 %> 普通 
+          <%= f.radio_button :condition, 0.8 %> 微妙 
+          <%= f.radio_button :condition, 0.6 %> 最悪... 
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <%= f.label :adjustment, '負荷を強くしますか？', {class: 'form-label'} %>
+        </div>
+        <div class="col-sm-8 mb-2">
+          <%= f.radio_button :adjustment, 2, {checked: true} %> 強く 
+          <%= f.radio_button :adjustment, 1 %> 少し強く 
+          <%= f.radio_button :adjustment, 0 %> そのまま 
+          <%= f.radio_button :adjustment, -1 %> 少し弱く 
+          <%= f.radio_button :adjustment, -2 %> 弱く 
+        </div>
+
+        <div class="col-sm-4 mb-2">
+          <%= f.label :focus, 'どこを特に鍛えますか？', {class: 'form-label'} %>
+        </div>
+        <div class="col-sm-8 mb-2">
+          <%= f.radio_button :focus, 'shoulder', {checked: true} %> 肩 
+          <%= f.radio_button :focus, 'breast' %> 胸 
+          <%= f.radio_button :focus, 'arm' %> 腕 
+          <%= f.radio_button :focus, 'back' %> 背中 
+          <%= f.radio_button :focus, 'abs' %> 腹 
+          <%= f.radio_button :focus, 'leg' %> 脚 
+        </div>
+
+        <div class="col-sm-4">
+          <%= f.label :focus, '何分ぐらい使えますか？', {class: 'form-label'} %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.select :allowed_time, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60], class: "form-select" %>
+        </div>
+      </div>
+
+      <%= f.submit 'メニュー作成!', class: 'Kbtn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

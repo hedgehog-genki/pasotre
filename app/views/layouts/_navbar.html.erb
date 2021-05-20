@@ -8,8 +8,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
-          <li class="dropdown-divider"></li>
+          <li class="dropdown-item"><%= link_to 'USER', user_path(current_user) %></li>
+          <li class="dropdown-item"><%= link_to 'PLANNING', new_planning_path %></li>
           <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
         <% else %>
           <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
