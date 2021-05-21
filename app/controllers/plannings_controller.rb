@@ -21,9 +21,35 @@ class PlanningsController < ApplicationController
 
   def show
     # 配列にハッシュを格納していけばいい
-    # @planning = Planning.find_by(user_id: current_user.id)
-    # @menus = Training.all
-    @menus = [{ name: 'スクワット', 'count': 10}, { name: '腕立て伏せ', 'count': 20}]
+    @planning = Planning.find_by(user_id: current_user.id)
+    todayLevel = (@planning.level * @planning.condition).ceil + @planning.adjustment
+
+    @menus = []
+
+    i = 0
+    sumTime = 0
+
+    while sumTime < @planning.allowed_time
+      if i % 2 == 0
+        training = Training.where(part: @planning.focus).first  # ランダムにする
+      else
+        training = Training.where.not(part: @planning.focus).first  # ランダムにする
+      end
+
+      count = (training.basis * todayLevel).ceil # 回数を算出
+      time = ((training.time).to_f / 60 * count).ceil # x/60[分/回] * y 回 = xy/60 hunn 
+      sumTime += time    
+
+      @menus[i] = {
+        name: training.name,
+        count: count,
+        time: time
+       }
+
+      i += 1
+
+    end
+
   end
 
   private
