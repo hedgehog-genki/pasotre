@@ -1,14 +1,12 @@
 <div class="card-deck">
-
   <% @menus.each do |menu| %>
     <div class="card m-2">
       <div class="card-body">
         <div class="card-title">
-          <h5>card sample</h5>
+          <h5><%= menu.training.name %></h5>
         </div>
         <div class="card-text">
-          <%= menu[:name] %>
-          <%= menu[:count] %>
+          <%= menu.count %> 回
         </div>
       </div>
     </div>

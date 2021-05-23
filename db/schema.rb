@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_130832) do
+ActiveRecord::Schema.define(version: 2021_05_22_012213) do
+
+  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "training_id", null: false
+    t.integer "count"
+    t.integer "num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["training_id"], name: "index_menus_on_training_id"
+    t.index ["user_id"], name: "index_menus_on_user_id"
+  end
 
   create_table "plannings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -41,5 +52,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_130832) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "menus", "trainings"
+  add_foreign_key "menus", "users"
   add_foreign_key "plannings", "users"
 end
