@@ -1,10 +1,10 @@
 class PlanningsController < ApplicationController
-
+  require 'securerandom'
   before_action :require_user_logged_in, only: [:index, :new, :create]
 
   def index
-    latest_created_at = Menu.where(user_id: current_user.id).order(created_at: :desc).first.created_at  # ログインユーザが作成した一番最初のメニューの日付
-    @menus = Menu.where(user_id: current_user.id).where("created_at >= ?", latest_created_at.to_i).order(num: :asc) # 一番新しいメニュー作成日 Time オブジェクトから小数点を切り捨てて比較
+    this_set = Menu.where(user_id: current_user.id).order(created_at: :desc).first.set  # ログインユーザが作成したメニューのセット値
+    @menus = Menu.where(user_id: current_user.id).where(set: this_set).order(num: :asc) # セット値が同じメニューを出力
   end
 
   def new
@@ -19,6 +19,7 @@ class PlanningsController < ApplicationController
     i = 0
     @sumTime = 0
 
+    this_set = SecureRandom.alphanumeric(10)
     while @sumTime < @planning.allowed_time # 時間が許す限りメニューを追加していく
       # トレーニングを選んでくる処理
       if i % 2 == 0
@@ -33,6 +34,7 @@ class PlanningsController < ApplicationController
       menu.training_id = training.id 
       menu.count = (training.basis * todayLevel).ceil # 基礎レベルに倍率をかけて回数を算出
       menu.num = i # 何番目のメニューであるか
+      menu.set = this_set
       menu.save
 
       time = ((training.time).to_f / 60 * menu.count).ceil # このトレーニングに要する時間を 1 分単位で算出
