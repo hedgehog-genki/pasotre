@@ -23,9 +23,9 @@ class PlanningsController < ApplicationController
     while @sumTime < @planning.allowed_time # 時間が許す限りメニューを追加していく
       # トレーニングを選んでくる処理
       if i % 2 == 0
-        training = Training.where(part: @planning.focus).first  # 集中鍛錬部位に合致するトレーニングを1個選ぶ (後でランダム選択にする)
+        training = Training.where(part: @planning.focus).sample  # 集中鍛錬部位に合致するトレーニングを1個選ぶ (後でランダム選択にする)
       else
-        training = Training.where.not(part: @planning.focus).first  # 集中鍛錬部位以外のトレーニングを1個選ぶ
+        training = Training.where.not(part: @planning.focus).sample  # 集中鍛錬部位以外のトレーニングを1個選ぶ
       end
 
       # i 番目のメニューを作成する処理
