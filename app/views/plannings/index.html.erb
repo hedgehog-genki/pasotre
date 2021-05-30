@@ -5,7 +5,9 @@
         <div class="card-body">
           <div class="card-title">
             <h5><%= menu.training.name %></h5>
-            <p class="tooltip"><%= menu.training.description %></p>
+              <div id="wkTxt2">
+                <strong title="<%= menu.training.description %>">?</strong>
+              </div>
           </div>
           <div class="card-text">
             <%= menu.count %> 回
@@ -16,15 +18,16 @@
   </div>
 </div>
 
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script type="text/javascript">
-  $(function () {
-      $('.tooltip').hide();
-      $('td').hover(
-      function () {
-          $(this).children('.tooltip').fadeIn('fast');
-      },
-      function () {
-          $(this).children('.tooltip').fadeOut('fast');
-      });
+<!--
+$(function() {
+  $("#wkTxt2").tooltip({
+    show:false,
+    hide:false
   });
+});
+//-->
 </script>
