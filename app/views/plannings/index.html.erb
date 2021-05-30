@@ -4,10 +4,16 @@
       <div class="card col-md-4 p-2">
         <div class="card-body">
           <div class="card-title">
-            <h5><%= menu.training.name %></h5>
-              <div id="wkTxt2">
-                <strong title="<%= menu.training.description %>">?</strong>
-              </div>
+            <ul class="list-inline">
+              <li class="list-inline-item"><h5 class="d-inline"><%= menu.training.name %></h5></li>
+              <li class="list-inline-item">
+                <div id="wkTxt2">
+                  <strong title="<%= menu.training.description %>">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                  </strong>
+                </div>
+              </li>
+            </ul>
           </div>
           <div class="card-text">
             <%= menu.count %> 回

@@ -8,6 +8,7 @@ class PlanningsController < ApplicationController
   end
 
   def new
+    # ログインユーザーが作成したメニューがまだ無ければ〜
     @planning = Planning.new
   end
 
@@ -39,6 +40,7 @@ class PlanningsController < ApplicationController
 
       time = ((training.time).to_f / 60 * menu.count).ceil # このトレーニングに要する時間を 1 分単位で算出
       @sumTime += time # 所要時間の計算に加算
+      @sumTime += 1 # 休憩時間を加算
       i += 1
     end
 
