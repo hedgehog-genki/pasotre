@@ -8,7 +8,6 @@ class PlanningsController < ApplicationController
   end
 
   def new
-    # ログインユーザーが作成したメニューがまだ無ければ〜
     @planning = Planning.new
   end
 

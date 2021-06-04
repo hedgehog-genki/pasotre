@@ -5,10 +5,10 @@
 
       <div class="form-group row">
         <div class="col-sm-4 mb-2">
-          <%= f.label :condition, '負荷レベルはいくつにしますか？', {class: 'form-label'} %>
+          <%= f.label :condition, '今日はスクワットを何回できそうですか？', {class: 'form-label'} %>
         </div>
         <div class="col-sm-8">
-          <%= f.select :allowed_time, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100], class: "form-select" %>
+          <%= f.select :allowed_time, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], class: "form-select" %>
         </div>
 
         <div class="col-sm-4 mb-2">
