@@ -1,10 +1,11 @@
-<% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.email %></p>
-<% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to Pasotre</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+<div class="jumbotron">
+  <div class="container-fluid bg-light text-center p-5">
+    <h1 class="m-2">Pasotre</h1>
+    <div class="m-2">
+      <p>AI パーソナルトレーナーが<p>
+      <p>今日のアナタにピッタリなトレーニングメニューを作ります</p>
     </div>
+    <%= link_to "ユーザ登録する", signup_path, class: "btn btn-primary" %>
   </div>
-<% end %>
+</div>
+
