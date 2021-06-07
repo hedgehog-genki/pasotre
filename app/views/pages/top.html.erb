@@ -6,7 +6,11 @@
       <p>AI パーソナルトレーナーが<p>
       <p>今日のアナタにピッタリなトレーニングメニューを作ります</p>
     </div>
-    <%= link_to "ユーザ登録する", signup_path, class: "btn btn-primary" %>
+    <% if logged_in? %>
+      <%= link_to "トレーニング開始", new_planning_path, class: "btn btn-success mt-2 mb-5" %>
+    <% else %>
+      <%= link_to "ユーザ登録する", signup_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
@@ -60,4 +64,18 @@
       </div>
     </div>
   </div>
+  <% if logged_in? %>
+    <%= link_to "トレーニング開始", new_planning_path, class: "btn btn-success mt-2 mb-5" %>
+  <% end %>
 </div>
+
+<%# SIGN UP %>
+<% if !logged_in? %>
+  <div class="container text-center my-5">
+    <h3 class="text-secondary mt-3 mb-5">ユーザ登録してトレーニングしましょう</h3>
+    <div class="text-secondary">
+    <p>ユーザ登録すると  アナタの　その日の体調に合わせた</p>
+    <p>トレーニングメニューを自動生成できるようになります</p>
+    </div>
+  </div>
+<% end %>
