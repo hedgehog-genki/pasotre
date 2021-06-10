@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   def show
     @user = User.find(params[:id])
+    if Planning.find_by(user_id: current_user.id).level.nil?
+      @level = 10
+    else
+      @level = Planning.find_by(user_id: current_user.id).level
+    end
   end
 
   def new
