@@ -10,10 +10,10 @@
         <% if logged_in? %>
           <li class="dropdown-item"><%= link_to 'USER', user_path(current_user), class: 'link' %></li>
           <li class="dropdown-item"><%= link_to 'PLANNING', new_planning_path, class: 'link' %></li>
-          <li class="dropdown-item"><%= link_to 'Logout', logout_path, class: 'link', method: :delete %></li>
+          <li class="dropdown-item"><%= link_to 'LOGOUT', logout_path, class: 'link', method: :delete %></li>
         <% else %>
-          <li class="dropdown-item"><%= link_to 'Signup', signup_path, class: 'link' %></li>
-          <li class="dropdown-item"><%= link_to 'Login', login_path, class: 'link' %></li>
+          <li class="dropdown-item"><%= link_to 'SIGNUP', signup_path, class: 'link' %></li>
+          <li class="dropdown-item"><%= link_to 'LOGIN', login_path, class: 'link' %></li>
         <% end %>
       </ul>
     </div>
