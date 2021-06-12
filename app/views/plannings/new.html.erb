@@ -9,14 +9,20 @@
 
       <div class="form-group row">
         <div class="offset-sm-2 col-sm-8 mt-5 mb-2">
-          <%= f.label :condition, 'Q1. 今日はスクワットなら何回できそうですか？', class: 'form-label font-weight-bold' %>
+          <%= f.label :condition, 'Q1. 腕立て伏せを一気に何回できますか？', class: 'form-label font-weight-bold' %>
+          <strong title="基本の負荷レベルを決定するための参考情報です。負荷レベル 1 ＝ 「腕立て伏せ 1 回分」と換算されます。。">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </strong>
         </div>
         <div class="offset-sm-2 col-sm-8 mb-2">
-          <%= f.select :allowed_time, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], class: "form-select" %> 回
+          <%= f.select :condition, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], class: "form-select" %> 回
         </div>
 
         <div class="offset-sm-2 col-sm-8 mt-5 mb-2">
           <%= f.label :condition, 'Q2. 今日の調子は？', class: 'form-label' %>
+          <strong title="メニューの強度を微調整するための質問です。">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </strong>
         </div>
         <div class="offset-sm-2 col-sm-8 mb-2">
           <%= f.radio_button :condition, 1.4, {checked: true} %> 最高! 
@@ -28,6 +34,9 @@
 
         <div class="offset-sm-2 col-sm-8 mt-5 mb-2">
           <%= f.label :adjustment, 'Q3. 負荷はどんな感じにしますか？', class: 'form-label' %>
+          <strong title="メニューの強度を微調整するための質問です。">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </strong>
         </div>
         <div class="offset-sm-2 col-sm-8 mb-2">
           <%= f.radio_button :adjustment, 2, {checked: true} %> 強く 
@@ -39,6 +48,9 @@
 
         <div class="offset-sm-2 col-sm-8 mt-5 mb-2">
           <%= f.label :focus, 'Q4. どこを特に鍛えたいですか？', class: 'form-label' %>
+          <strong title="選んだ部位を特に鍛えられるメニューを組むことができます。">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </strong>
         </div>
         <div class="offset-sm-2 col-sm-8 mb-2">
           <%= f.radio_button :focus, '肩', {checked: true} %> 肩 
@@ -51,6 +63,9 @@
 
         <div class="offset-sm-2 col-sm-8 mt-5 mb-2">
           <%= f.label :focus, 'Q5. 何分ぐらいトレーニングしますか？', {class: 'form-label'} %>
+          <strong title="トレーニングの全体時間を決める目安となります。">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          </strong>
         </div>
         <div class="offset-sm-2 col-sm-8 mb-2">
           <%= f.select :allowed_time, [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60], class: "form-select" %> 分
