@@ -2,20 +2,16 @@
   <h1>SETTING</h1>
 </div>
 
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
-    <div class="form-group mt-3 mb-5">
-      <p>メールアドレス</p>
-      <p><b><%= @user.email %></b></p>
-    </div>
-    <div class="form-group my-5">
-      <p>
-        負荷レベル
-        <strong title="前回のトレーニングにおける負荷レベルを示しています。負荷レベル 1 ＝ 「腕立て伏せ 1 回分」と換算してください。">
-        <i class="fa fa-question-circle" aria-hidden="true"></i>
-        </strong>
-      </p>
-      <p><h4 class="d-inline"><%= @level %></h4> / 100</p>
-    </div>
-  </div>
+<div class="form-group mt-3 mb-5">
+  <p>メールアドレス</p>
+  <p><b><%= @user.email %></b></p>
+</div>
+<div class="form-group my-5">
+  <p>
+    負荷レベル
+    <strong title="前回のトレーニングにおける負荷レベルを示しています。負荷レベル 1 ＝ 「腕立て伏せ 1 回分」と換算してください。">
+    <i class="fa fa-question-circle" aria-hidden="true"></i>
+    </strong>
+  </p>
+  <p><h4 class="d-inline"><%= @level %></h4> / 100</p>
 </div>
