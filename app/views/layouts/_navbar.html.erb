@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="dropdown-item"><%= link_to 'USER', user_path(current_user), class: 'link' %></li>
+          <li class="dropdown-item"><%= link_to 'USER', users_path, class: 'link' %></li>
           <li class="dropdown-item"><%= link_to 'PLANNING', new_planning_path, class: 'link' %></li>
           <li class="dropdown-item"><%= link_to 'MENU', plannings_path(current_user), class: 'link' %></li>
           <li class="dropdown-item"><%= link_to 'LOGOUT', logout_path, class: 'link', method: :delete %></li>
