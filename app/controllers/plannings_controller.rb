@@ -1,11 +1,9 @@
 class PlanningsController < ApplicationController
   require 'securerandom'
   before_action :require_user_logged_in, only: [:index, :new, :create]
-  before_action :show_todays_menu, only: [:index, :show]
-  def index
-  end
+  before_action :show_todays_menu, only: [:index]
 
-  def show
+  def index
   end
 
   def new
@@ -44,7 +42,7 @@ class PlanningsController < ApplicationController
       i += 1
     end
 
-    redirect_to plannings_path  # 今日のメニュー一覧に遷移
+    redirect_to plannings_path  # 作成したメニュー画面に遷移
     flash[:success] = "メニューを作成しました"
 
   end
@@ -55,11 +53,11 @@ class PlanningsController < ApplicationController
   end
 
   def show_todays_menu
-    unless Menu.where(user_id: current_user.id) # 作成済みのメニューがあるかどうか
+    if Menu.find_by(user_id: current_user.id).nil? # 作成済みのメニューがあるかどうか
+      redirect_to new_planning_path
+    else
       this_set = Menu.where(user_id: current_user.id).order(created_at: :desc).first.set # ログインユーザが作成したメニューの最新セット値
       @menus = Menu.where(user_id: current_user.id).where(set: this_set).order(num: :asc) # セット値が同じメニューを出力
-    else
-      redirect_to new_planning_path
     end
   end
 end
