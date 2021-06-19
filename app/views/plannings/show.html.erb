@@ -1,0 +1,18 @@
+<div class="text-center my-5">
+  <h1>TODAY'S  MENU</h1>
+</div>
+
+<div class="container">
+<div class="row mb-5">
+  <% @menus.each do |menu| %>
+    <div class="col-sm-4 mb-4 text-center">
+      <div class="card">
+        <div class="card-header bg-light"><h4 class="my-4"><%= menu.training.name %></h4></div>
+        <div class="card-body">
+          <h4 class="card-title"><%= menu.count %> 回</h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
