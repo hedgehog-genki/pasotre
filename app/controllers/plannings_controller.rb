@@ -1,9 +1,14 @@
 class PlanningsController < ApplicationController
   require 'securerandom'
   before_action :require_user_logged_in, only: [:index, :new, :create]
-  before_action :show_todays_menu, only: [:index]
 
   def index
+    if Menu.find_by(user_id: current_user.id).nil? # 作成済みのメニューがあるかどうか
+      redirect_to new_planning_path
+    else
+      this_set = Menu.where(user_id: current_user.id).order(created_at: :desc).first.set # ログインユーザが作成したメニューの最新セット値
+      @menus = Menu.where(user_id: current_user.id).where(set: this_set).order(num: :asc) # セット値が同じメニューを出力
+    end
   end
 
   def new
@@ -52,12 +57,4 @@ class PlanningsController < ApplicationController
     params.require(:planning).permit(:level, :condition, :adjustment, :focus, :allowed_time)
   end
 
-  def show_todays_menu
-    if Menu.find_by(user_id: current_user.id).nil? # 作成済みのメニューがあるかどうか
-      redirect_to new_planning_path
-    else
-      this_set = Menu.where(user_id: current_user.id).order(created_at: :desc).first.set # ログインユーザが作成したメニューの最新セット値
-      @menus = Menu.where(user_id: current_user.id).where(set: this_set).order(num: :asc) # セット値が同じメニューを出力
-    end
-  end
 end
