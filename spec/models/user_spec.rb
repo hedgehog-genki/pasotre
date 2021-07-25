@@ -14,10 +14,5 @@ RSpec.describe User, type: :model do
       @user.email = ''
       expect(@user.valid?).to eq(false)
     end
-
-    # it 'password が空だとNG' do
-    #   @user.password = ''
-    #   expect(@user.valid?).to eq(false)
-    # end
   end
 end
