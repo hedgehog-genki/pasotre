@@ -1,6 +1,9 @@
-import 'bootstrap/dist/js/bootstrap'
+// import "src/js/pages_top";
+
+import 'bootstrap/dist/js/bootstrap';
 import "bootstrap/dist/css/bootstrap";
 import "packs/application.css";
+
 
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
