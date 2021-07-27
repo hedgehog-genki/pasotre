@@ -1,7 +1,6 @@
-// import "src/js/pages_top";
-
 import 'bootstrap/dist/js/bootstrap';
 import "bootstrap/dist/css/bootstrap";
+
 import "packs/application.css";
 
 

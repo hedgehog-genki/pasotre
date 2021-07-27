@@ -49,3 +49,10 @@ merge してもよいと判断したら "+1" とコメントして Approve
 
 最後にmasterブランチへmerge
 PRの[Conversation]タブを開き、一番下の[Squash and merge]をクリックしてください。[Squash and merge]がない場合は、▼を押してプルダウンから選択してください。
+
+
+
+-----------------------
+docker-compose run app rails db:migrate
+docker-compose run app rails db:seed
+docker-compose run app yarn add jquery popper.js
