@@ -26,12 +26,18 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
+        <%= favicon_link_tag "/favicon.png",rel:"shortcut icon" %>
+        <%= favicon_link_tag '/apple-touch-icon-144-precomposed.png',rel:'apple-touch-icon-precomposed',sizes:'144x144'%>
+        <%= favicon_link_tag '/apple-touch-icon-144-precomposed.png',rel:'apple-touch-icon-precomposed',sizes:'114x114'%>
+        <%= favicon_link_tag '/apple-touch-icon-144-precomposed.png',rel:'apple-touch-icon-precomposed',sizes:'72x72'%>
+        <%= favicon_link_tag '/apple-touch-icon-57-precomposed.png',rel:'apple-touch-icon-precomposed' %>
+        <!--変更
         <link rel="shortcut icon" href="assets/ico/favicon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-
+        -->
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     </head>
@@ -409,7 +415,7 @@
 	                <div class="col-sm-4 about-us-box wow fadeInDown">
 		                <div class="about-us-photo">
                       <%=image_tag "about2.jpg"%>
-		                	<img src="assets/img/about/2.jpg" alt="" data-at2x="assets/img/about/2.jpg">
+		                	<!--変更<img src="assets/img/about/2.jpg" alt="" data-at2x="assets/img/about/2.jpg">-->
 		                </div>
 	                    <h3>Tom Brown</h3>
 	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
@@ -421,7 +427,7 @@
 	                </div>
 	                <div class="col-sm-4 about-us-box wow fadeInUp">
 		                <div class="about-us-photo">
-                      <%=image_tag "about3" %>
+                      <%=image_tag "about3.jpg" %>
 		                	<!--<img src="assets/img/about/3.jpg" alt="" data-at2x="assets/img/about/3.jpg">-->
 		                </div>
 	                    <h3>Sarah Green</h3>
